@@ -61,6 +61,6 @@ const vurls = await Promise.all(
 ).then((t) => t.reduce((a, b) => [...b, ...a], [] as string[]).toSorted());
 
 await Deno.writeFile(
-  "data.json",
+  "pages/data.json",
   new TextEncoder().encode(JSON.stringify(vurls))
 );

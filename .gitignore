@@ -2,4 +2,6 @@
 .vscode/settings.json
 
 # Result
-data.json
+pages/*
+
+!.gitkeep
