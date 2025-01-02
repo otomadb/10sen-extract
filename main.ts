@@ -20,6 +20,7 @@ const pageUrls = [
   "http://oto10.s602.xrea.com/10sen/2021-r.html",
   "http://oto10.s602.xrea.com/10sen/2022-r.html",
   "http://oto10.s602.xrea.com/10sen/2023-r.html",
+  "http://oto10.s602.xrea.com/10sen/2024-r.html",
 ];
 
 const vurls = await Promise.all(
