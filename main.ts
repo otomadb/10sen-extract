@@ -88,7 +88,7 @@ function normalizeVUrl(vurl: string | null): string | null {
 function estimateType(
   vurl: string | null,
 ):
-  | "niconico"
+  | "nicovideo"
   | "nicovideo-live"
   | "youtube"
   | "twitter"
@@ -100,7 +100,7 @@ function estimateType(
 
   switch (new URL(vurl).host) {
     case "www.nicovideo.jp":
-      return "niconico";
+      return "nicovideo";
 
     case "live.nicovideo.jp":
       return "nicovideo-live";
