@@ -18,6 +18,7 @@ const years = [
   2022,
   2023,
   2024,
+  2025,
 ];
 
 const dat: Record<
