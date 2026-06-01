@@ -1,6 +1,9 @@
 # VScode
 .vscode/settings.json
 
+# Deps
+node_modules
+
 # Result
 pages/*
 

@@ -1,4 +1,4 @@
-import { DOMParser } from "jsr:@b-fuze/deno-dom";
+import { parseHTML } from "linkedom";
 
 const years = [
   2008,
@@ -34,8 +34,8 @@ const dat: Record<
 for (const year of years) {
   const url = `http://oto10.s602.xrea.com/10sen/${year}-r.html`;
   const t = await fetch(url).then((b) => b.text());
-  const a = new DOMParser().parseFromString(t, "text/html")!;
-  const dds = a.querySelectorAll("tr");
+  const { document } = parseHTML(t);
+  const dds = document.querySelectorAll("tr");
 
   const recs: (typeof dat)[number] = [];
 
@@ -46,9 +46,7 @@ for (const year of years) {
 
     if (!/^\d+$/.test(z0)) continue;
 
-    const href =
-      (tds[1].querySelector("a")?.attributes.getNamedItem("href")?.value
-        .trim()) ||
+    const href = tds[1].querySelector("a")?.getAttribute("href")?.trim() ||
       null;
     const vurl = normalizeVUrl(href);
 
@@ -131,7 +129,4 @@ function estimateType(
   }
 }
 
-await Deno.writeFile(
-  "pages/data.json",
-  new TextEncoder().encode(JSON.stringify(dat)),
-);
+await Bun.write("pages/data.json", JSON.stringify(dat));
